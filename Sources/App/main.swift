@@ -36,9 +36,8 @@ drop.get("register") { _ in
 }
 
 drop.get("logout") { request in
-    
     try request.auth.logout()
-    return JSON([:])
+    return JSON(["message":"Loggout successful"])
 }
 
 let protect = ProtectMiddleware(error: Abort.custom(status: .forbidden, message: "User not authenticated"))

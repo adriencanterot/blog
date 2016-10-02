@@ -24,9 +24,14 @@ final class User:Model {
         let rawEmail: String = try node.extract("email")
         self.email = try rawEmail.validated()
         self.password = try node.extract("password")
+        let mirror = Mirror(reflecting: self.self)
+        for child in mirror.children {
+            print(child.label!)
+        }
     }
     
     func makeNode(context: Context) throws -> Node {
+        
         return try Node(node: [
             "id":self.id,
             "name":self.name,
@@ -34,6 +39,7 @@ final class User:Model {
             "password": self.password
             ]
         )
+        
     }
     
     static func prepare(_ database: Database) throws {
@@ -48,8 +54,6 @@ final class User:Model {
     static func revert(_ database: Database) throws {
         try database.delete(entity)
     }
-    
-    
 }
 
 extension User:Auth.User {
@@ -86,5 +90,6 @@ extension User:Auth.User {
         
     }
 }
+
 
 
