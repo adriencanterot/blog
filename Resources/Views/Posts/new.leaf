@@ -1,0 +1,14 @@
+#extend("base")
+#export("title") { New post }
+#export("body") {
+	<form method="post" action="/posts">
+	  <br>
+	  <label for="title">Name:</label><br>
+	  <input type="text" name="title"><br/>
+	  <br/>
+		<label for="content">Content : </label><br/>
+	  <textarea name="content"></textarea>
+	  <br/>
+	  <input type="submit" value="Submit">
+	</form>
+}

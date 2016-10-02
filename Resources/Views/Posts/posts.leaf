@@ -1,0 +1,22 @@
+#extend("base")
+#export("title") { Posts }
+#export("body") {
+
+<table>
+
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Author</th>
+  </tr>
+
+#loop(posts, "post") {
+  <tr>
+    <td>#(post.title)</td>
+    <td>#(post.content)</td>
+    <td>#(post.user.name)</td>
+  </tr>
+}
+</table>
+
+}

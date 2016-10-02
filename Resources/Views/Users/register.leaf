@@ -1,0 +1,17 @@
+#extend("base")
+
+#export("title") { Register }
+
+#export("body") {
+	<form method="post" action="users">
+		<label for="username">Username : </label>
+		<input type="text" name="username"/>
+        <label for="email">email : </label>
+        <input type="text" name="email"/>
+		<label for="password">Password : </label>
+		<input type="password" name="password"/>
+		<label for="confirm">Confirm : </label>
+		<input type="password" name="confirm"/>
+		<input type="submit" name="submit"/>
+	</form>
+}
